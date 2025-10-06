@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "GVNFGSnhsUo=",
+  "success": true,
+  "projectFilePath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/AuthenticationServices/AuthenticationServices.csproj",
+  "expectedPackageFiles": [
+    "/Users/priyank/.nuget/packages/microsoft.aspnetcore.openapi/9.0.6/microsoft.aspnetcore.openapi.9.0.6.nupkg.sha512",
+    "/Users/priyank/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
