@@ -11,4 +11,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.6" PrivateAssets="all" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Pages\Home.css">
+      <DependentUpon>Home.razor</DependentUpon>
+    </None>
+  </ItemGroup>
+
 </Project>

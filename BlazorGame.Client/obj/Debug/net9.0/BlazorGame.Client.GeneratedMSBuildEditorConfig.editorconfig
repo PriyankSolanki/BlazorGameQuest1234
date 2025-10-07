@@ -28,10 +28,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-14c4fuxgv6
 
-[/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-ul4y5mftmb
+[/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-0m3nzybz1b
+
+[/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/Pages/RoomTemplate.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUm9vbVRlbXBsYXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-87cg8a2sqm

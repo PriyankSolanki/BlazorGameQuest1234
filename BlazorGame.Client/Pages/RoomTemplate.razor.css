@@ -1,0 +1,50 @@
+.room {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.title{
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding: 1em;
+}
+
+.arena{
+    height: 100%;
+    display: flex;
+}
+.character{
+    border-right : 1px solid black;
+    width: 50%;
+}
+
+.option{
+    display: flex;
+    border-top: 1px solid black;
+    padding: 1em;
+    height: 20%;
+    position: sticky;
+    bottom: 0;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.option button {
+    flex: 1;     
+    max-width: 150px;
+    margin: 0 0.5em;
+    padding: 0.7em 1em;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: black;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.option button:hover {
+    background-color: #000;
+    color: #fff;
+}
