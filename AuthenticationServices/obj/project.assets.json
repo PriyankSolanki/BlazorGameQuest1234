@@ -3349,19 +3349,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/priyank/.nuget/packages/": {}
+    "C:\\Users\\Younes\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/priyank/RiderProjects/BlazorGameQuest1234/AuthenticationServices/AuthenticationServices.csproj",
+      "projectUniqueName": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\AuthenticationServices\\AuthenticationServices.csproj",
       "projectName": "AuthenticationServices",
-      "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/AuthenticationServices/AuthenticationServices.csproj",
-      "packagesPath": "/Users/priyank/.nuget/packages/",
-      "outputPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/AuthenticationServices/obj/",
+      "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\AuthenticationServices\\AuthenticationServices.csproj",
+      "packagesPath": "C:\\Users\\Younes\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\AuthenticationServices\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/priyank/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Younes\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3373,8 +3373,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj": {
-              "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj"
+            "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj": {
+              "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj"
             }
           }
         }
@@ -3441,7 +3441,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/priyank/.dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
