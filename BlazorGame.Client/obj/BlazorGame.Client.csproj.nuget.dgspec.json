@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\BlazorGame.Client\\BlazorGame.Client.csproj": {}
+    "/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/BlazorGame.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\BlazorGame.Client\\BlazorGame.Client.csproj": {
+    "/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/BlazorGame.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\BlazorGame.Client\\BlazorGame.Client.csproj",
+        "projectUniqueName": "/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/BlazorGame.Client.csproj",
         "projectName": "BlazorGame.Client",
-        "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\BlazorGame.Client\\BlazorGame.Client.csproj",
-        "packagesPath": "C:\\Users\\Younes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\BlazorGame.Client\\obj\\",
+        "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/BlazorGame.Client.csproj",
+        "packagesPath": "/Users/priyank/.nuget/packages/",
+        "outputPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/BlazorGame.Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Younes\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/priyank/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -60,13 +60,13 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.9, )",
+              "version": "[9.0.6, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.9, )",
+              "version": "[9.0.6, )",
               "autoReferenced": true
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
@@ -88,7 +88,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[9.0.9, 9.0.9]"
+              "version": "[9.0.6, 9.0.6]"
             }
           ],
           "frameworkReferences": {
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/priyank/.dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

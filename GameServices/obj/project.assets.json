@@ -3439,19 +3439,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Younes\\.nuget\\packages\\": {}
+    "/Users/priyank/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\GameServices\\GameServices.csproj",
+      "projectUniqueName": "/Users/priyank/RiderProjects/BlazorGameQuest1234/GameServices/GameServices.csproj",
       "projectName": "GameServices",
-      "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\GameServices\\GameServices.csproj",
-      "packagesPath": "C:\\Users\\Younes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\GameServices\\obj\\",
+      "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/GameServices/GameServices.csproj",
+      "packagesPath": "/Users/priyank/.nuget/packages/",
+      "outputPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/GameServices/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Younes\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/priyank/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3463,11 +3463,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\AuthenticationServices\\AuthenticationServices.csproj": {
-              "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\AuthenticationServices\\AuthenticationServices.csproj"
+            "/Users/priyank/RiderProjects/BlazorGameQuest1234/AuthenticationServices/AuthenticationServices.csproj": {
+              "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/AuthenticationServices/AuthenticationServices.csproj"
             },
-            "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj": {
-              "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj"
+            "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj": {
+              "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj"
             }
           }
         }
@@ -3530,7 +3530,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

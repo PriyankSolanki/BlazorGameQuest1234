@@ -686,19 +686,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Younes\\.nuget\\packages\\": {}
+    "/Users/priyank/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj",
+      "projectUniqueName": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj",
       "projectName": "SharedModels",
-      "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj",
-      "packagesPath": "C:\\Users\\Younes\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\obj\\",
+      "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj",
+      "packagesPath": "/Users/priyank/.nuget/packages/",
+      "outputPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Younes\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/priyank/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -753,7 +753,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

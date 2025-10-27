@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "Tests/1.0.0": {
         "dependencies": {
+          "AuthenticationServices": "1.0.0",
           "GameServices": "1.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "9.0.10",
           "Microsoft.NET.Test.Sdk": "18.0.0",
@@ -562,7 +563,7 @@
         "runtime": {
           "lib/netstandard2.0/xunit.abstractions.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
