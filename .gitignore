@@ -9,4 +9,123 @@
 /GameServices/bin
 /SharedModels/obj/
 /SharedModels/bin
+/Tests/bin/
+/Tests/obj/
+
+## === Build results ===
+bin/
+obj/
+out/
+Debug/
+Release/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Bb][Uu][Ii][Ll][Dd]/
+
+## === Visual Studio specific ===
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## === JetBrains Rider ===
+.idea/
+*.sln.iml
+
+## === Logs & Diagnostics ===
+*.log
+*.tlog
+*.dmp
+*.pidb
+*.svclog
+*.ncb
+*.opendb
+
+## === Auto-generated files ===
+Generated\ Files/
+*_i.c
+*_p.c
+*_h.h
+*.iobj
+*.ipdb
+*.tmp
+*.bak
+
+## === NuGet Packages ===
+*.nupkg
+*.snupkg
+# Si tu veux ignorer les packages téléchargés :
+packages/
+# Mais garde les fichiers de config
+!**/packages/build/
+!**/packages/repositories.config
+
+## === User-specific settings ===
+*.userprefs
+*.csproj.user
+*.dbmdl
+
+## === Secrets & Config ===
+*.env
+*.env.local
+*.env.development
+*.env.production
+appsettings.*.json
+!appsettings.json  # on garde la version de base
+secrets.json
+
+## === ASP.NET / Blazor / Web ===
+wwwroot/dist/
+wwwroot/node_modules/
+wwwroot/lib/
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/
+dist/
+coverage/
+
+## === Entity Framework / SQLite / Databases ===
+*.mdf
+*.ldf
+*.sqlite
+*.db
+Migrations/  # si tu veux régénérer à chaque fois, sinon garde
+
+## === ReSharper ===
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## === Test Results ===
+TestResults/
+*.VisualState.xml
+*.vsp
+*.vspx
+*.coverage
+*.coveragexml
+
+## === Publish ===
+publish/
+*.Publish.xml
+
+## === macOS & Windows OS files ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## === Temporary Files ===
+~$*
+*.tmp
+*.temp
+*.cache
+*.bak
+
+## === Rider & VS Code launch ===
+.idea/
+.vscode/
+*.code-workspace
 
