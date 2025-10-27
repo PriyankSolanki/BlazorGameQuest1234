@@ -1,0 +1,12 @@
+/AuthenticationServices/bin/
+/AuthenticationServices/Migrations/
+/AuthenticationServices/obj/
+/.idea
+/.run
+/BlazorGame.Client/bin/
+/BlazorGame.Client/obj/
+/GameServices/obj/
+/GameServices/bin
+/SharedModels/obj/
+/SharedModels/bin
+
