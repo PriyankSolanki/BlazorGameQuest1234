@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj": {}
+    "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj": {}
   },
   "projects": {
-    "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj": {
+    "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj",
+        "projectUniqueName": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj",
         "projectName": "SharedModels",
-        "projectPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/SharedModels.csproj",
-        "packagesPath": "/Users/priyank/.nuget/packages/",
-        "outputPath": "/Users/priyank/RiderProjects/BlazorGameQuest1234/SharedModels/obj/",
+        "projectPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\SharedModels.csproj",
+        "packagesPath": "C:\\Users\\Younes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Younes\\Desktop\\ING2_efrei\\S7\\C#\\Projet\\BlazorGameQuest1234\\SharedModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/priyank/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Younes\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/priyank/.dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
