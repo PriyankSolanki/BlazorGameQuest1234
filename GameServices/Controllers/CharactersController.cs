@@ -32,7 +32,7 @@ namespace GameServices.Controllers
         }
 
 
-        // POST: api/characters
+        //post: api/characters
         
         [HttpPost]
         public ActionResult<Charactere> CreateBase(Charactere chara)
@@ -42,7 +42,7 @@ namespace GameServices.Controllers
             return CreatedAtAction(nameof(GetById), new { id = chara.Id }, chara);
         }
 
-        // PUT: api/characters/5
+        //put: api/characters/5
         [HttpPut("{id:int}")]
         public IActionResult Update(int id, Charactere chara)
         {
@@ -57,7 +57,7 @@ namespace GameServices.Controllers
             return NoContent();
         }
 
-        // DELETE: api/characters/5
+        //delete: api/characters/5
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {

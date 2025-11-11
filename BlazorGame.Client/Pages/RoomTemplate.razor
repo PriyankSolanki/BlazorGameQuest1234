@@ -1,22 +1,224 @@
 @page "/RoomTemplate"
+@using BlazorGame.Client
+@using SharedModels
+@inject GameApiService GameService
 
-<div class="room">
-    
-    <div class="title">
-        <h3>ROOM 01</h3>
-    </div>
-    
-    <div class="arena">
-        <div class="character">Personnage</div>
-        <div class="ennemie">Ennemie</div>
-    </div>
-    
-    <div class="option">
-        <button>Attaquer</button>
-        <button>Soigner</button>
-        <button>Fuir</button>
-        <button>Explorer</button>
-        <button>-</button>
-        <button>-</button>
-    </div>
+<div class="game-container">
+    <h2 class="title">⚔️ Blazor Dungeon Quest</h2>
+
+    @if (error is not null)
+    {
+        <div class="alert">@error</div>
+    }
+    else if (state is null || currentDungeon is null)
+    {
+        <div class="loading">Chargement du donjon...</div>
+    }
+    else if (state.IsGameOver)
+    {
+        <div class="end-screen">
+            <h3>💀 Partie terminée 💀</h3>
+            <p class="score">🏆 Score final : <strong>@state.Score</strong></p>
+            <p class="pv">❤️ PV restants : @state.Player?.PV</p>
+
+            @if (saveSuccess)
+            {
+                <p class="saved">💾 Partie sauvegardée avec succès !</p>
+            }
+
+            <NavLink class="home-btn" href="/">Retour à l'accueil</NavLink>
+        </div>
+    }
+    else
+    {
+        <div class="status-bar">
+            <div class="stat">❤️ PV : <strong>@state.Player?.PV</strong></div>
+            <div class="stat">Score : <strong>@state.Score</strong></div>
+            <div class="stat">Salle : <strong>@(state.RoomsVisited + 1) / @state.RoomsLimit</strong></div>
+        </div>
+
+        @if (currentRoom is not null)
+        {
+            <div class="room-card fade-in">
+                <h3>@currentRoom.Title</h3>
+                <p class="desc">@currentRoom.Description</p>
+            </div>
+
+            <div class="actions">
+                @foreach (var action in currentRoom.AvailableActions)
+                {
+                    <button class="action-btn" @onclick="() => HandleAction(action)" disabled="@isBusy">
+                        @action
+                    </button>
+                }
+            </div>
+        }
+    }
 </div>
+
+@code {
+    private GameState? state;
+    private Dungeon? currentDungeon;
+    private ProceduralRoom? currentRoom;
+    private string? error;
+    private bool isBusy = false;
+    private bool hasSaved = false;
+    private bool saveSuccess = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        state = new GameState { Player = new Player(0, "Héros", 100, 20, 0) };
+        currentDungeon = await GameService.GenerateDungeonAsync(rooms: 5);
+        if (currentDungeon is not null)
+        {
+            state.DungeonId = currentDungeon.Id;
+            state.CurrentRoomId = currentDungeon.StartRoomId;
+            state.RoomsLimit = currentDungeon.Path.Count;
+            UpdateCurrentRoom();
+        }
+    }
+
+    private async Task HandleAction(string action)
+    {
+        if (state is null) return;
+        isBusy = true;
+        StateHasChanged();
+
+        state = await GameService.DoActionAsync(state, action);
+        UpdateCurrentRoom();
+        isBusy = false;
+        StateHasChanged();
+    }
+
+    private void UpdateCurrentRoom()
+    {
+        if (currentDungeon is null || state is null) return;
+        currentDungeon.Rooms.TryGetValue(state.CurrentRoomId, out currentRoom);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (state is not null && state.IsGameOver && !hasSaved)
+        {
+            hasSaved = true;
+            var save = new GameSave
+            {
+                PlayerName = state.Player.name,
+                FinalScore = state.Score,
+                FinalPV = state.Player.PV,
+                Victory = state.Score >= 0 && state.Player.PV > 0,
+                RoomsExplored = state.RoomsVisited,
+                RoomsTotal = state.RoomsLimit
+            };
+            await GameService.SaveGameAsync(save);
+            saveSuccess = true;
+            StateHasChanged();
+        }
+    }
+}
+
+<style>
+    body {
+        background: radial-gradient(circle at top, #1b1b1b, #000);
+        font-family: 'Segoe UI', sans-serif;
+        color: #f1f1f1;
+    }
+
+    .game-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(30, 30, 30, 0.9);
+        border-radius: 16px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: #ffd86b;
+        text-shadow: 2px 2px 4px #000;
+    }
+
+    .status-bar {
+        display: flex;
+        justify-content: space-around;
+        background: rgba(50, 50, 50, 0.6);
+        padding: 0.7rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .room-card {
+        background: linear-gradient(145deg, #292929, #1b1b1b);
+        border-radius: 14px;
+        padding: 1.2rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .room-card h3 { color: #ffce54; margin-bottom: 0.4rem; }
+    .desc { color: #ddd; font-size: 1rem; }
+
+    .actions {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+    }
+
+    .action-btn {
+        background: linear-gradient(135deg, #4a90e2, #357abd);
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.3rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.15s ease, background 0.2s;
+    }
+
+    .action-btn:hover {
+        background: linear-gradient(135deg, #5aa3ff, #468bd4);
+        transform: scale(1.05);
+    }
+
+    .end-screen {
+        background: rgba(20, 20, 20, 0.9);
+        border-radius: 14px;
+        padding: 2rem;
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        color: #f3f3f3;
+    }
+
+    .home-btn {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.7rem 1.3rem;
+        background-color: #ff4b4b;
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+    .home-btn:hover { background-color: #ff6a6a; transform: scale(1.05); }
+    .saved { color: #4cd964; font-weight: bold; margin-top: 0.8rem; }
+
+    .alert {
+        color: #ff4b4b;
+        background: rgba(60, 0, 0, 0.6);
+        padding: 0.8rem;
+        border-radius: 8px;
+    }
+
+    .fade-in { animation: fadeIn 0.6s ease-in-out; }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>

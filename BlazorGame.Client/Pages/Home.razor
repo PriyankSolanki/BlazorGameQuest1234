@@ -1,9 +1,47 @@
 ﻿@page "/"
-<PageTitle>Accueil</PageTitle>
 
-<div class="home-button">
-    <NavLink href="/RoomTemplate" Match="NavLinkMatch.All">
-        <button class="start-button">Nouvelle aventure</button>
-    </NavLink>
+<div class="home-container">
+    <h1 class="title">Blazor Dungeon Quest</h1>
+    <p class="subtitle">Prêt pour l’aventure ?</p>
+
+    <div class="buttons">
+        <NavLink href="/RoomTemplate"><button class="btn start">Nouvelle aventure</button></NavLink>
+        <NavLink href="/saves"><button class="btn saves">Sauvegardes</button></NavLink>
+    </div>
 </div>
 
+<style>
+    .home-container {
+        text-align: center;
+        margin-top: 8vh;
+        color: #fff;
+    }
+    .title {
+        font-size: 2.4rem;
+        color: #ffd86b;
+        text-shadow: 2px 2px 8px #000;
+    }
+    .subtitle {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        color: #ccc;
+    }
+    .buttons {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .btn {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+        font-size: 1rem;
+    }
+    .start { background: linear-gradient(135deg, #4a90e2, #357abd); color: #fff; }
+    .saves { background: linear-gradient(135deg, #ffd86b, #cfa93d); color: #000; }
+    .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
+</style>

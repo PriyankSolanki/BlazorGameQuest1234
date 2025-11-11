@@ -1,0 +1,97 @@
+@page "/saves"
+@inject GameApiService GameService
+@using SharedModels
+
+<div class="saves-container">
+    <h2>Sauvegardes précédentes</h2>
+    
+    @if (saves is null)
+    {
+        <p>Chargement...</p>
+    }
+    else if (saves.Count == 0)
+    {
+        <p>Aucune partie enregistrée.</p>
+    }
+    else
+    {
+        <table class="save-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Joueur</th>
+                    <th>Score</th>
+                    <th>PV</th>
+                    <th>Résultat</th>
+                    <th>Salles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in saves)
+                {
+                    <tr>
+                        <td>@s.Date.ToShortDateString() @s.Date.ToShortTimeString()</td>
+                        <td>@s.PlayerName</td>
+                        <td>@s.FinalScore</td>
+                        <td>@s.FinalPV</td>
+                        <td>@(s.Victory ? "Victoire" : "Défaite")</td>
+                        <td>@s.RoomsExplored / @s.RoomsTotal</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <NavLink href="/" class="home-btn">Retour</NavLink>
+</div>
+
+@code {
+    private List<GameSave>? saves;
+
+    protected override async Task OnInitializedAsync()
+    {
+        saves = await GameService.GetAllSavesAsync() ?? new();
+    }
+}
+
+<style>
+    .saves-container {
+        max-width: 800px;
+        margin: 3rem auto;
+        background: rgba(30, 30, 30, 0.9);
+        padding: 1.5rem;
+        border-radius: 14px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        color: #f5f5f5;
+    }
+    h2 { color: #ffd86b; margin-bottom: 1.2rem; }
+    .save-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #222;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 0.8rem;
+        border-bottom: 1px solid #444;
+    }
+    th {
+        background: #333;
+        color: #ffd86b;
+    }
+    tr:nth-child(even) { background: #2b2b2b; }
+    tr:hover { background: rgba(255,255,255,0.1); }
+    .home-btn {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        background-color: #4a90e2;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+    .home-btn:hover { background-color: #357abd; transform: scale(1.05); }
+</style>

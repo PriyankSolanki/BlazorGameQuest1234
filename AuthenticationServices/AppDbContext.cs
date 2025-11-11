@@ -1,25 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using SharedModels;
 
-namespace AuthenticationServices;
-
-public class AppDbContext : DbContext
+namespace AuthenticationServices
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options) { }
-    
-    public DbSet<User> Users { get; set; }
-    public DbSet<Charactere> Characters { get; set; }
-    public DbSet<Ennemie> Ennemies { get; set; }
-    public DbSet<Player> Players { get; set; } 
-    public DbSet<Room> Rooms { get; set; }
-    
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class AppDbContext : DbContext
     {
-        base.OnModelCreating(modelBuilder);
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options) { }
 
-        modelBuilder.Entity<Ennemie>().ToTable("Ennemies");
-        modelBuilder.Entity<Player>().ToTable("Players");
+        public DbSet<Charactere> Characters { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<Ennemie> Ennemies { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<GameSave> GameSaves { get; set; }
+
+        
     }
-
 }
