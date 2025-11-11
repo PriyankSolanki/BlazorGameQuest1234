@@ -17,13 +17,13 @@
     else if (state.IsGameOver)
     {
         <div class="end-screen">
-            <h3>💀 Partie terminée 💀</h3>
-            <p class="score">🏆 Score final : <strong>@state.Score</strong></p>
+            <h3>Partie terminée</h3>
+            <p class="score">Score final : <strong>@state.Score</strong></p>
             <p class="pv">❤️ PV restants : @state.Player?.PV</p>
 
             @if (saveSuccess)
             {
-                <p class="saved">💾 Partie sauvegardée avec succès !</p>
+                <p class="saved">Partie sauvegardée avec succès !</p>
             }
 
             <NavLink class="home-btn" href="/">Retour à l'accueil</NavLink>
