@@ -45,3 +45,18 @@ dotnet restore
 }
 ```
 
+### 5️⃣ Comment lancer le projet
+1 - Lancer le backend
+API Auth + Base de données :
+cd AuthenticationServices
+dotnet run
+cd GameServices
+dotnet run
+2 - Lancer le front Blazor
+cd BlazorGame.Client
+dotnet run
+
+
+3 - Exécuter les tests 
+cd Tests
+dotnet test
