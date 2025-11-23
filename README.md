@@ -85,15 +85,7 @@ cd BlazorGame
 dotnet restore
 ```
 
-### 4️⃣ Modifier la chaîne de connexion
-
-```
-"ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Port=8889;Database=blazorgame;User=root;Password=root"
-}
-```
-
-### 5️⃣ Comment lancer le projet
+### 4️⃣ Comment lancer le projet
 1 - Lancer le backend
 API Auth + Base de données :
 cd AuthenticationServices
