@@ -18,6 +18,54 @@ Ce projet est une architecture modulaire .NET 9 composée de plusieurs services 
 
 ---
 
+## Règles du jeu
+
+Le joueur commence en cliquant sur Nouvelle aventure.
+
+Le système génère un donjon contenant entre 4 et 6 salles maximum.
+
+Chaque salle correspond à un événement différent :
+
+Ennemi : combattre, fouiller ou fuir
+
+Coffre : ouvrir ou ignorer
+
+Piège : désamorcer ou fuir
+
+Fontaine : boire (régénère)
+
+Salle vide : explorer/continuer
+
+Chaque action modifie :
+
+les points de vie (PV)
+
+le score
+
+la position dans le donjon
+
+# Fin de la partie
+
+La partie se termine si :
+
+le joueur atteint la dernière salle
+
+les PV tombent à 0
+
+le score devient négatif
+
+la sortie est atteinte
+
+# Sauvegarde
+
+À la fin de l’aventure, la partie est enregistrée :
+
+son score final
+
+la date de la partie
+
+Les sauvegardes sont visibles dans une page dédiée.
+
 ## ⚙️ Installation & Exécution
 
 ### 1️⃣ Prérequis
