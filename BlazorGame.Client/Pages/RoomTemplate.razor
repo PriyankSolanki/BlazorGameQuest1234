@@ -1,7 +1,8 @@
 @page "/RoomTemplate"
-@using BlazorGame.Client
+@using Microsoft.AspNetCore.Authorization
 @using SharedModels
 @inject GameApiService GameService
+@attribute [Authorize]
 
 <div class="game-container">
     <h2 class="title">Blazor Dungeon</h2>

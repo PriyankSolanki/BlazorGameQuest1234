@@ -1,6 +1,8 @@
 @page "/PlayerManagement"
 @inject GameApiService GameService
+@using Microsoft.AspNetCore.Authorization
 @using SharedModels
+@attribute [Authorize]
 
 <div class="saves-container">
     <h2>Listes des joueurs</h2>

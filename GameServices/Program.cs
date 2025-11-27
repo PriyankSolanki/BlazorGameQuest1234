@@ -65,6 +65,7 @@ app.UseSwagger();
 app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseCors("AllowBlazorClient");
+app.UseAuthentication(); 
 app.UseAuthorization();
 app.MapControllers();
 app.Run("http://0.0.0.0:5001");

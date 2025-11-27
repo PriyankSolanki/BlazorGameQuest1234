@@ -16,6 +16,7 @@ builder.Services.AddScoped(sp => new HttpClient
 
 builder.Services.AddScoped<GameApiService>();
 builder.Services.AddScoped<ITokenService, LocalStorageTokenService>();
+builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 
 await builder.Build().RunAsync();

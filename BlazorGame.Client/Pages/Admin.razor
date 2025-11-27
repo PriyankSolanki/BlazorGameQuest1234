@@ -1,5 +1,7 @@
 @page "/Admin"
 @using Microsoft.AspNetCore.Authorization
+@inject ITokenService TokenService
+@inject NavigationManager Nav
 @attribute [Authorize]
 
 <div class="home-container">
@@ -10,6 +12,7 @@
         <NavLink href="/PlayerManagement"><button class="btn start">Gestion des joueurs</button></NavLink>
         <NavLink href="/saves"><button class="btn saves">Sauvegardes</button></NavLink>
         <NavLink href="/Rule"><button class="btn rules">Règle du jeu</button></NavLink>
+        <button class="btn logout" @onclick="Logout">Se déconnecter</button>
     </div>
 </div>
 
@@ -50,3 +53,10 @@
     .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 </style>
 
+@code{
+    private async Task Logout()
+    {
+        await TokenService.RemoveTokenAsync();
+        Nav.NavigateTo("/");
+    }
+}
