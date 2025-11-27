@@ -1,0 +1,82 @@
+/* Fond général de la page de login */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #233143 0, #0b1117 50%, #05070a 100%);
+    padding: 16px;
+}
+
+/* Carte de connexion */
+.login-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Titre */
+.login-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #233143;
+}
+
+/* Groupes de champs */
+.login-card .form-group {
+    margin-bottom: 16px;
+}
+
+/* Labels */
+.login-card label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Inputs */
+.login-card .form-control {
+    border-radius: 8px;
+    border: 1px solid #d0d4dd;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login-card .form-control:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* Bouton de connexion */
+.login-button {
+    margin-top: 8px;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+/* Message d'erreur */
+.login-error {
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px;
+    }
+
+    .login-card h3 {
+        font-size: 1.3rem;
+    }
+}

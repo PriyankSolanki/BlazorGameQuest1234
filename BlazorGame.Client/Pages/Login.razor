@@ -1,80 +1,85 @@
 @page "/"
-@inject NavigationManager NavigationManager
+@using System.Text.Json.Serialization
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
 
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4">
-            <div class="card shadow-sm">
-                <div class="card-header bg-dark text-white text-center">
-                    <h3 class="mb-0">Connexion</h3>
-                </div>
+@attribute [AllowAnonymous]
 
-                <div class="card-body">
-                    <form>
-                        
-                        <div class="mb-3">
-                            <label class="form-label" for="username">Nom d'utilisateur ou e-mail</label>
-                            <input id="username"
-                                   class="form-control @(showUsernameError ? "is-invalid" : "")"
-                                   type="text"
-                                   placeholder="Entrez votre identifiant"
-                                   @bind="username" />
-                            @if (showUsernameError)
-                            {
-                                <div class="text-danger mt-1">
-                                    Le nom d'utilisateur est obligatoire.
-                                </div>
-                            }
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label" for="password">Mot de passe</label>
-                            <input id="password"
-                                   class="form-control @(showPasswordError ? "is-invalid" : "")"
-                                   type="password"
-                                   placeholder="Entrez votre mot de passe"
-                                   @bind="password" />
-                            @if (showPasswordError)
-                            {
-                                <div class="text-danger mt-1">
-                                    Le mot de passe est obligatoire.
-                                </div>
-                            }
-                        </div>
-                        
-                        <button type="button" class="btn btn-primary w-100" @onclick="OnLoginClick">
-                            Se connecter
-                        </button>
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthProvider
+@inject ITokenService localStorage;
 
-                    </form>
-                </div>
+<div class="login-page">
+    <div class="login-card">
+        <h3>Connexion</h3>
+
+        <EditForm Model="@credentials" OnValidSubmit="@HandleLogin">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Nom d'utilisateur :</label>
+                <InputText @bind-Value="credentials.Username" class="form-control" />
             </div>
-        </div>
+
+            <div class="form-group">
+                <label>Mot de passe :</label>
+                <InputText @bind-Value="credentials.Password" type="password" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-primary login-button">Se connecter</button>
+        </EditForm>
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger login-error">@errorMessage</div>
+        }
     </div>
 </div>
 
 @code {
-    private string? username;
-    private string? password;
-
-    private bool showUsernameError;
-    private bool showPasswordError;
-
-    private void OnLoginClick()
+    private UserCredentials credentials = new();
+    private string? errorMessage;
+    private async Task HandleLogin()
     {
-        showUsernameError = string.IsNullOrWhiteSpace(username);
-        showPasswordError = string.IsNullOrWhiteSpace(password);
+        var response = await Http.PostAsJsonAsync("http://localhost:5051/api/auth/login", credentials);
         
-        if (showUsernameError || showPasswordError)
-            return;
-        
-        if (username == "admin" && password == "admin")
+        if (response.IsSuccessStatusCode)
         {
-            NavigationManager.NavigateTo("/Admin");
+            var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
+            var token = result?.AccessToken;
+            Console.WriteLine($"....{result} ");
+            Console.WriteLine($"....{token} ");
+            await localStorage.SetTokenAsync(token);
+
+            if (AuthProvider is CustomAuthStateProvider customProvider && token is not null)
+            {
+                customProvider.NotifyUserAuthentication(token);
+            }
+            Navigation.NavigateTo("/home");
         }
         else
         {
-            NavigationManager.NavigateTo("/home");
+            errorMessage = "Échec de la connexion. Vérifiez vos identifiants.";
         }
+    }
+
+    public class UserCredentials
+    {
+        public string Username { get; set; } = "";
+        public string Password { get; set; } = "";
+    }
+
+    public class LoginResponse
+    {
+        [JsonPropertyName("access_token")]
+        public string? AccessToken { get; set; }
+
+        [JsonPropertyName("expires_in")]
+        public int ExpiresIn { get; set; }
+
+        [JsonPropertyName("refresh_token")]
+        public string? RefreshToken { get; set; }
     }
 }
