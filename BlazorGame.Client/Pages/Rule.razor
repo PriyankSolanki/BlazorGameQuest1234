@@ -1,0 +1,192 @@
+@page "/Rule"
+
+<div class="container my-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <h2 class="mb-0">Règles du jeu</h2>
+        </div>
+
+        <div class="card-body">
+            <section class="mb-4">
+                <h4>Principe général</h4>
+                <p>
+                    Le joueur commence en cliquant sur <strong>Nouvelle aventure</strong>.
+                    Le système génère alors un <strong>donjon</strong> composé de 
+                    <strong>5 salles</strong> maximum.  
+                </p>
+                <p>
+                    Dans chaque salle, un événement se produit. Tu dois choisir une action,
+                    qui aura un impact sur :
+                </p>
+                <ul>
+                    <li><strong>Les points de vie (PV)</strong> du joueur</li>
+                    <li><strong>Le score</strong> accumulé</li>
+                    <li><strong>La position</strong> dans le donjon (avancement, fin de partie…)</li>
+                </ul>
+            </section>
+            
+            <section class="mb-4">
+                <h4>Déroulement d'une aventure</h4>
+                <ol>
+                    <li>Tu cliques sur <strong>Nouvelle aventure</strong>.</li>
+                    <li>Un donjon de 5 salles est généré aléatoirement.</li>
+                    <li>Tu entres dans la première salle et découvres son type (ennemi, coffre, piège, etc.).</li>
+                    <li>Tu choisis une action proposée pour cette salle.</li>
+                    <li>Les PV, le score et la position sont mis à jour.</li>
+                    <li>Tu passes à la salle suivante jusqu’à la fin du donjon ou jusqu’à la mort du personnage.</li>
+                </ol>
+            </section>
+            
+            <section class="mb-4">
+                <h4>Types de salles</h4>
+
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-danger">
+                            <div class="card-header bg-danger text-white">
+                                <strong>Ennemi</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>Tu rencontres un ennemi.</p>
+                                <ul>
+                                    <li><strong>Combattre</strong> : 
+                                        <br />– Tu peux perdre ou gagner des PV  
+                                        <br />– Tu gagnes du score si tu remportes le combat
+                                    </li>
+                                    <li><strong>Fouiller</strong> : 
+                                        <br />– Tu peux trouver du butin (score)  
+                                        <br />– Tu prends un risque (perte éventuelle de PV)
+                                    </li>
+                                    <li><strong>Fuir</strong> : 
+                                        <br />– Tu évites le combat  
+                                        <br />– Tu gagnes peu ou pas de score  
+                                        <br />– Tu avances dans le donjon
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100 border-warning">
+                            <div class="card-header bg-warning">
+                                <strong>Coffre</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>Un coffre mystérieux se trouve au milieu de la salle.</p>
+                                <ul>
+                                    <li><strong>Ouvrir</strong> :
+                                        <br />– Tu peux gagner du score ou un bonus (PV, etc.)  
+                                        <br />– Selon le jeu, le coffre peut cacher un danger
+                                    </li>
+                                    <li><strong>Ignorer</strong> :
+                                        <br />– Tu ne prends aucun risque  
+                                        <br />– Tu ne gagnes rien non plus
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary">
+                            <div class="card-header bg-secondary text-white">
+                                <strong>Piège</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>La salle contient un piège plus ou moins visible.</p>
+                                <ul>
+                                    <li><strong>Désamorcer</strong> :
+                                        <br />– Si tu réussis, tu évites des dégâts et peux gagner du score  
+                                        <br />– En cas d’échec, tu perds des PV
+                                    </li>
+                                    <li><strong>Fuir</strong> :
+                                        <br />– Tu évites (en partie) le risque  
+                                        <br />– Tu peux tout de même subir un léger malus selon la logique du jeu
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card h-100 border-info">
+                            <div class="card-header bg-info">
+                                <strong>Fontaine</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>Une fontaine magique murmure au centre de la pièce.</p>
+                                <ul>
+                                    <li><strong>Boire</strong> :
+                                        <br />– Régénère des <strong>PV</strong> (soin)  
+                                        <br />– Peut éventuellement donner un léger bonus de score
+                                    </li>
+                                    <li><strong>Ignorer / Continuer</strong> :
+                                        <br />– Tu avances simplement vers la salle suivante
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="card h-100 border-light">
+                            <div class="card-header bg-light">
+                                <strong>Salle vide</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>La salle semble vide… ou presque.</p>
+                                <ul>
+                                    <li><strong>Explorer</strong> :
+                                        <br />– Tu peux découvrir un petit événement (bonus/malus léger)  
+                                        <br />– Tu peux gagner un peu de score
+                                    </li>
+                                    <li><strong>Continuer</strong> :
+                                        <br />– Tu passes à la salle suivante sans effet particulier
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mb-4">
+                <h4>Impact des actions</h4>
+                <ul>
+                    <li><strong>Points de vie (PV)</strong>  
+                        <br />– Baisser à cause des pièges, ennemis ou mauvaises décisions  
+                        <br />– Remonter grâce aux fontaines ou à certains coffres  
+                        <br />– Si les PV tombent à 0, la partie est terminée.
+                    </li>
+                    <li class="mt-2"><strong>Score</strong>  
+                        <br />– Augmente en gagnant des combats, en ouvrant des coffres, en explorant  
+                        <br />– Peut être pénalisé par certains choix risqués ou la fuite répétée
+                    </li>
+                    <li class="mt-2"><strong>Position dans le donjon</strong>  
+                        <br />– Chaque salle franchie te rapproche de la sortie  
+                        <br />– Certaines actions te font avancer plus vite ou te permettent d’éviter des salles dangereuses
+                    </li>
+                </ul>
+            </section>
+            
+            <section>
+                <h4>Conseils</h4>
+                <ul>
+                    <li>Garde toujours un œil sur tes <strong>PV</strong>.</li>
+                    <li>Le <strong>score</strong> récompense la prise de risque, mais attention à ne pas mourir trop tôt.</li>
+                    <li>Adapte tes choix au type de salle et à ton état actuel (PV restants, progression, etc.).</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="card-footer d-flex justify-content-end">
+            <a href="/" class="btn btn-primary">
+                Retour au menu
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+}
