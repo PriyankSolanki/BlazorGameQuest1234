@@ -1,11 +1,30 @@
 using GameServices;
 using Microsoft.EntityFrameworkCore;
 using SharedModels;using GameServices.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IDungeonStore, InMemoryDungeonStore>();
 
+
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.Authority = "http://localhost:8180/realms/blazorGame";
+        
+        options.RequireHttpsMetadata = false;
+
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = false,
+        };
+    });
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("GameDB"));
@@ -13,6 +32,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddAuthorization();
+
 
 builder.Services.AddCors(options =>
 {

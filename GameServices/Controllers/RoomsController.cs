@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ namespace GameServices.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RoomsController : ControllerBase
     {
         private readonly AppDbContext _context;

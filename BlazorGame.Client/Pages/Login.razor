@@ -68,7 +68,7 @@
             
             if (user.IsInRole("admin"))
             {
-                Navigation.NavigateTo("/Admin");
+                Navigation.NavigateTo("/Admin", forceLoad:true);
             }
             else
             {

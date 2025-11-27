@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
 using GameServices.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameServices.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class GameController : ControllerBase
     {
         private readonly IDungeonStore _store;

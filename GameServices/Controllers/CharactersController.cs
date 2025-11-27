@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
 
@@ -5,6 +6,7 @@ namespace GameServices.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class CharactersController : ControllerBase
     {
         private readonly AppDbContext _context;
