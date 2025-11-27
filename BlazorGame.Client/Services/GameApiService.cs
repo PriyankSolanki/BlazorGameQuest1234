@@ -11,8 +11,7 @@ namespace BlazorGame.Client
         {
             _http = http;
         }
-
-        //generation du donjon 
+        
         public async Task<Dungeon?> GenerateDungeonAsync(int rooms = 4)
         {
             return await _http.GetFromJsonAsync<Dungeon>($"api/dungeons/generate?rooms={rooms}");
@@ -33,6 +32,11 @@ namespace BlazorGame.Client
         public async Task<List<GameSave>?> GetAllSavesAsync()
         {
             return await _http.GetFromJsonAsync<List<GameSave>>("api/saves");
+        }
+        
+        public async Task<List<Player>?> GetAllPlayersAsync()
+        {
+            return await _http.GetFromJsonAsync<List<Player>>("api/players");
         }
 
     }

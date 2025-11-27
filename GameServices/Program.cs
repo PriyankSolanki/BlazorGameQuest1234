@@ -46,11 +46,12 @@ using (var scope = app.Services.CreateScope())
     if (!db.Players.Any())
     {
         db.Players.Add(new Player(0, "Hero", 100, 20, 0));
+        db.Players.Add(new Player(0, "Player 1", 100, 20, 0));
     }
 
     if (!db.Users.Any())
     {
-        db.Users.Add(new User(0, "admin", "admin123", true));
+        db.Users.Add(new User(0, "admin", "admin", true));
     }
 
     db.SaveChanges();
