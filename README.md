@@ -92,6 +92,7 @@ cd AuthenticationServices
 dotnet run
 cd GameServices
 dotnet run
+
 2 - Lancer le front Blazor
 cd BlazorGame.Client
 dotnet run

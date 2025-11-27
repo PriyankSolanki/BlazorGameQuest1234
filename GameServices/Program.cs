@@ -64,13 +64,8 @@ using (var scope = app.Services.CreateScope())
     Console.ResetColor();
     Console.WriteLine($"📦 Ennemis : {db.Ennemies.Count()} | Joueurs : {db.Players.Count()} | Utilisateurs : {db.Users.Count()}");
 }
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseCors("AllowBlazorClient");
 app.UseAuthorization();

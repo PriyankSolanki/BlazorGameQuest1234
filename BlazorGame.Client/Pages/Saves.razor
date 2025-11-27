@@ -35,7 +35,7 @@
                         <td>@s.FinalScore</td>
                         <td>@s.FinalPV</td>
                         <td>@(s.Victory ? "Victoire" : "Défaite")</td>
-                        <td>@s.RoomsExplored / @s.RoomsTotal</td>
+                        <td>@(s.RoomsExplored + 1) / @s.RoomsTotal</td>
                     </tr>
                 }
             </tbody>
