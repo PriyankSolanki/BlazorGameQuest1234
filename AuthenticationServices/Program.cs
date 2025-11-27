@@ -1,29 +1,73 @@
-using Microsoft.EntityFrameworkCore;
-using AuthenticationServices;
-using SharedModels;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MySecureApi;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("GameDB"));
+// Configuration du logging
+builder.Logging.ClearProviders(); // Optionnel : nettoie les providers par défaut
+builder.Logging.AddConsole();     // Ajoute le provider console
+builder.Logging.AddDebug();       // Ajoute le provider debug
 
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = "http://localhost:8180/realms/efrei-realm",
+
+        ValidateAudience = true,
+        ValidAudiences = ["account", builder.Configuration["Keycloak:ClientId"]],
+
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = false,
+
+        IssuerSigningKeyResolver = (token, securityToken, kid, parameters) =>
+        {
+            var client = new HttpClient();
+            var keyUri = $"{parameters.ValidIssuer}/protocol/openid-connect/certs";
+            var response = client.GetAsync(keyUri).Result;
+            var keys = new JsonWebKeySet(response.Content.ReadAsStringAsync().Result);
+
+            return keys.GetSigningKeys();
+        }
+    };
+
+    options.RequireHttpsMetadata = false; // Only in develop environment
+    options.SaveToken = true;
+});
+
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<KeycloakAuthService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
-
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+// Configure middleware
+app.UseCors("AllowAll");
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
+app.Run("http://0.0.0.0:5051");

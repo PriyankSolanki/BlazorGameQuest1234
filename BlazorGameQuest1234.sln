@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServices", "GameService
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{CF8DDA5E-5835-43AB-86E9-0A27D544B9A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{DFB227E9-354C-4E6A-A8C1-898C6130F331}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,18 @@ Global
 		{CF8DDA5E-5835-43AB-86E9-0A27D544B9A4}.Release|x64.Build.0 = Release|Any CPU
 		{CF8DDA5E-5835-43AB-86E9-0A27D544B9A4}.Release|x86.ActiveCfg = Release|Any CPU
 		{CF8DDA5E-5835-43AB-86E9-0A27D544B9A4}.Release|x86.Build.0 = Release|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Debug|x64.Build.0 = Debug|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Debug|x86.Build.0 = Debug|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Release|x64.ActiveCfg = Release|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Release|x64.Build.0 = Release|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Release|x86.ActiveCfg = Release|Any CPU
+		{DFB227E9-354C-4E6A-A8C1-898C6130F331}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

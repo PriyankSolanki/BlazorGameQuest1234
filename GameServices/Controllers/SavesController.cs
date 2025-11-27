@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
-using AuthenticationServices;
 
 namespace GameServices.Controllers
 {

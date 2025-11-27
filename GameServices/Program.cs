@@ -1,5 +1,5 @@
+using GameServices;
 using Microsoft.EntityFrameworkCore;
-using AuthenticationServices;
 using SharedModels;using GameServices.Services;
 
 
@@ -67,4 +67,4 @@ app.UseHttpsRedirection();
 app.UseCors("AllowBlazorClient");
 app.UseAuthorization();
 app.MapControllers();
-app.Run("http://localhost:5122");
+app.Run("http://0.0.0.0:5001");

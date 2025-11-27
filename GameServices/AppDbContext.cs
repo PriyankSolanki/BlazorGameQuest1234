@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SharedModels;
 
-namespace AuthenticationServices
+namespace GameServices
 {
     public class AppDbContext : DbContext
     {
