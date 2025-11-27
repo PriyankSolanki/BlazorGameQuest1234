@@ -1,14 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using AuthenticationServices;
 using SharedModels;using GameServices.Services;
-// ...
 
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IDungeonStore, InMemoryDungeonStore>();
 
 
-// ✅ Base InMemory (aucun MySQL)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseInMemoryDatabase("GameDB"));
 
@@ -16,7 +14,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// 🌍 CORS pour autoriser ton client Blazor
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazorClient", policy =>
@@ -30,7 +27,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// 🌱 Seed InMemory — ici, pour GameServices
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();

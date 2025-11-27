@@ -1,11 +1,11 @@
-﻿@page "/home"
+@page "/Admin"
 
 <div class="home-container">
-    <h1 class="title">Blazor Dungeon</h1>
-    <p class="subtitle">Prêt pour l’aventure ?</p>
+    <h1 class="title">Bienvenue Admin</h1>
+    <p class="subtitle">Vous êtes connecté en tant qu'admin</p>
 
     <div class="buttons">
-        <NavLink href="/RoomTemplate"><button class="btn start">Nouvelle aventure</button></NavLink>
+        <NavLink href="/PlayerManagement"><button class="btn start">Gestion des joueurs</button></NavLink>
         <NavLink href="/saves"><button class="btn saves">Sauvegardes</button></NavLink>
         <NavLink href="/Rule"><button class="btn rules">Règle du jeu</button></NavLink>
     </div>
@@ -47,3 +47,4 @@
     .rules { background: linear-gradient(135deg, #86ff6b, #3dcf3f); color: #000; }
     .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 </style>
+
