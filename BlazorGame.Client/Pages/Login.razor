@@ -49,7 +49,12 @@
         {
             var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
             var token = result?.AccessToken;
-            Console.WriteLine($"....{result} ");
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                errorMessage = "Token invalide reçu.";
+                return;
+            }
+            
             Console.WriteLine($"....{token} ");
             await localStorage.SetTokenAsync(token);
 
@@ -57,7 +62,18 @@
             {
                 customProvider.NotifyUserAuthentication(token);
             }
-            Navigation.NavigateTo("/home");
+            
+            var authState = await AuthProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+            
+            if (user.IsInRole("admin"))
+            {
+                Navigation.NavigateTo("/Admin");
+            }
+            else
+            {
+                Navigation.NavigateTo("/home");
+            }
         }
         else
         {

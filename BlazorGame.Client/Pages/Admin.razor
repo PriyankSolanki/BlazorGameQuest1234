@@ -2,7 +2,7 @@
 @using Microsoft.AspNetCore.Authorization
 @inject ITokenService TokenService
 @inject NavigationManager Nav
-@attribute [Authorize]
+@attribute [Authorize(Roles = "admin")]
 
 <div class="home-container">
     <h1 class="title">Bienvenue Admin</h1>
@@ -50,6 +50,7 @@
     .start { background: linear-gradient(135deg, #4a90e2, #357abd); color: #fff; }
     .saves { background: linear-gradient(135deg, #ffd86b, #cfa93d); color: #000; }
     .rules { background: linear-gradient(135deg, #86ff6b, #3dcf3f); color: #000; }
+    .logout { background: linear-gradient(135deg, #ff6b92, #cf3d3d); color: #000; }
     .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 </style>
 
