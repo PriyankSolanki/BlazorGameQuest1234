@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using SharedModels;
 
@@ -10,6 +11,11 @@ namespace BlazorGame.Client
         public GameApiService(HttpClient http)
         {
             _http = http;
+        }
+        
+        public void SetBearerToken(string token)
+        {
+            _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         }
         
         public async Task<Dungeon?> GenerateDungeonAsync(int rooms = 4)

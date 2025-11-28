@@ -9,6 +9,8 @@
 @inject NavigationManager Navigation
 @inject AuthenticationStateProvider AuthProvider
 @inject ITokenService localStorage;
+@inject GameApiService GameApi
+
 
 <div class="login-page">
     <div class="login-card">
@@ -54,13 +56,12 @@
                 errorMessage = "Token invalide reçu.";
                 return;
             }
-            
-            Console.WriteLine($"....{token} ");
             await localStorage.SetTokenAsync(token);
 
             if (AuthProvider is CustomAuthStateProvider customProvider && token is not null)
             {
                 customProvider.NotifyUserAuthentication(token);
+                GameApi.SetBearerToken(token);
             }
             
             var authState = await AuthProvider.GetAuthenticationStateAsync();

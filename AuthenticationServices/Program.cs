@@ -4,7 +4,6 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuration du logging
 builder.Logging.ClearProviders(); // Optionnel : nettoie les providers par défaut
 builder.Logging.AddConsole();     // Ajoute le provider console
 builder.Logging.AddDebug();       // Ajoute le provider debug
@@ -21,7 +20,7 @@ builder.Services.AddAuthentication(options =>
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
-        ValidIssuer = "http://localhost:8180/realms/efrei-realm",
+        ValidIssuer = "http://localhost:8180/realms/blazorGame",
 
         ValidateAudience = true,
         ValidAudiences = ["account", builder.Configuration["Keycloak:ClientId"]],

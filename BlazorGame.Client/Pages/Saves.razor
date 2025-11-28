@@ -2,6 +2,7 @@
 @inject GameApiService GameService
 @using Microsoft.AspNetCore.Authorization
 @using SharedModels
+@using Microsoft.AspNetCore.Components.Authorization
 @attribute [Authorize]
 
 <div class="saves-container">
@@ -44,7 +45,14 @@
         </table>
     }
 
-    <NavLink href="/home" class="home-btn">Retour</NavLink>
+    <AuthorizeView Roles="admin">
+        <Authorized>
+            <NavLink href="/Admin" class="home-btn">Retour</NavLink>
+        </Authorized>
+        <NotAuthorized>
+            <NavLink href="/home" class="home-btn">Retour</NavLink>
+        </NotAuthorized>
+    </AuthorizeView>
 </div>
 
 @code {

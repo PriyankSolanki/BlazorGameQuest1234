@@ -1,3 +1,4 @@
+using System.IdentityModel.Tokens.Jwt;
 using GameServices;
 using Microsoft.EntityFrameworkCore;
 using SharedModels;using GameServices.Services;
@@ -16,13 +17,13 @@ builder.Services.AddAuthentication(options =>
     })
     .AddJwtBearer(options =>
     {
-        options.Authority = "http://localhost:8180/realms/blazorGame";
-        
+        options.Authority = "http://host.docker.internal:8180/realms/blazorGame";
         options.RequireHttpsMetadata = false;
 
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = false,
+            ValidateIssuer = false,
         };
     });
 
@@ -91,4 +92,4 @@ app.UseCors("AllowBlazorClient");
 app.UseAuthentication(); 
 app.UseAuthorization();
 app.MapControllers();
-app.Run("http://0.0.0.0:5001");
+app.Run("http://0.0.0.0:5001/");

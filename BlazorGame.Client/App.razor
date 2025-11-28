@@ -29,3 +29,17 @@
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code {
+    [Inject] ITokenService TokenService { get; set; } = default!;
+    [Inject] GameApiService GameApi { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await TokenService.GetTokenAsync();
+        if (!string.IsNullOrWhiteSpace(token))
+        {
+            GameApi.SetBearerToken(token);
+        }
+    }
+}
