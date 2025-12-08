@@ -1,7 +1,7 @@
 using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using GameServices.Controllers;
-using AuthenticationServices;
+using GameServices;
 using SharedModels;
 using Microsoft.EntityFrameworkCore;
 

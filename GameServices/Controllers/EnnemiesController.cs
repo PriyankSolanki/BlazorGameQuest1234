@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
@@ -44,7 +46,7 @@ namespace GameServices.Controllers
             var existing = _context.Ennemies.Find(id);
             if (existing == null) return NotFound();
 
-            existing.name = ennemie.name;
+            existing.Name = ennemie.Name;
             existing.PV = ennemie.PV;
             existing.ATQ = ennemie.ATQ;
 

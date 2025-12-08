@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedModels;
@@ -44,7 +46,7 @@ namespace GameServices.Controllers
             var existing = _context.Players.Find(id);
             if (existing == null) return NotFound();
 
-            existing.name = player.name;
+            existing.Name = player.Name;
             existing.PV = player.PV;
             existing.ATQ = player.ATQ;
             existing.Score = player.Score;

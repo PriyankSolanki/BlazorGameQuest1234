@@ -12,3 +12,5 @@ Dockerfile
 docker-compose.yml
 README.md
 *.md
+**/bin
+**/obj

@@ -1,8 +1,8 @@
 ﻿using Xunit;
-using AuthenticationServices;
 using SharedModels;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using GameServices;
 
 namespace Tests
 {
@@ -27,7 +27,7 @@ namespace Tests
 
             var player = new Player
             {
-                name = "Younes",
+                Name = "Younes",
                 PV = 100,
                 ATQ = 20,
                 Score = 10
@@ -47,7 +47,7 @@ namespace Tests
             var context = GetDbContext();
             var ennemie = new Ennemie
             {
-                name = "Gobelin",
+                Name = "Gobelin",
                 PV = 60,
                 ATQ = 12
             };
@@ -55,7 +55,7 @@ namespace Tests
             context.Ennemies.Add(ennemie);
             context.SaveChanges();
 
-            var saved = context.Ennemies.FirstOrDefault(e => e.name == "Gobelin");
+            var saved = context.Ennemies.FirstOrDefault(e => e.Name == "Gobelin");
             Assert.NotNull(saved);
             Assert.Equal(12, saved.ATQ);
         }
@@ -87,7 +87,7 @@ namespace Tests
             var context = GetDbContext();
             var chara = new Charactere
             {
-                name = "Aventurier",
+                Name = "Aventurier",
                 PV = 80,
                 ATQ = 15
             };
@@ -95,7 +95,7 @@ namespace Tests
             context.Characters.Add(chara);
             context.SaveChanges();
 
-            var saved = context.Characters.FirstOrDefault(c => c.name == "Aventurier");
+            var saved = context.Characters.FirstOrDefault(c => c.Name == "Aventurier");
             Assert.NotNull(saved);
             Assert.Equal(80, saved.PV);
         }
@@ -106,8 +106,8 @@ namespace Tests
         {
             var context = GetDbContext();
 
-            var player = new Player { name = "Hero", PV = 100, ATQ = 20, Score = 5 };
-            var ennemie = new Ennemie { name = "Orc", PV = 90, ATQ = 15 };
+            var player = new Player { Name = "Hero", PV = 100, ATQ = 20, Score = 5 };
+            var ennemie = new Ennemie { Name = "Orc", PV = 90, ATQ = 15 };
             var room = new Room { Level = 1, Player = player, Ennemie = ennemie };
 
             context.Rooms.Add(room);
@@ -119,8 +119,8 @@ namespace Tests
                 .FirstOrDefault();
 
             Assert.NotNull(savedRoom);
-            Assert.Equal("Hero", savedRoom.Player.name);
-            Assert.Equal("Orc", savedRoom.Ennemie.name);
+            Assert.Equal("Hero", savedRoom.Player.Name);
+            Assert.Equal("Orc", savedRoom.Ennemie.Name);
         }
 
         //test 6 : verifie que la suppression d’un joueur fonctionne
@@ -128,14 +128,14 @@ namespace Tests
         public void Test_SuppressionPlayer_Fonctionne()
         {
             var context = GetDbContext();
-            var player = new Player { name = "TempPlayer", PV = 100, ATQ = 18, Score = 0 };
+            var player = new Player { Name = "TempPlayer", PV = 100, ATQ = 18, Score = 0 };
             context.Players.Add(player);
             context.SaveChanges();
 
             context.Players.Remove(player);
             context.SaveChanges();
 
-            Assert.Null(context.Players.FirstOrDefault(p => p.name == "TempPlayer"));
+            Assert.Null(context.Players.FirstOrDefault(p => p.Name == "TempPlayer"));
         }
     }
 }
