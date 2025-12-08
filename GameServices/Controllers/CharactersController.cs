@@ -49,7 +49,7 @@ namespace GameServices.Controllers
             var existing = _context.Characters.FirstOrDefault(x => x.Id == id);
             if (existing == null) return NotFound();
 
-            existing.name = chara.name;
+            existing.Name = chara.Name;
             existing.PV = chara.PV;
             existing.ATQ = chara.ATQ;
 

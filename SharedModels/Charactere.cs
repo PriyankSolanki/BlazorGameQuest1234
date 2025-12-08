@@ -1,19 +1,20 @@
-namespace SharedModels;
-
-public class Charactere
+namespace SharedModels
 {
-    public int Id { get; set; }
-    public string name { get; set; }
-    public int PV { get; set; }
-    public int ATQ { get; set; }
-    
-    public Charactere() { }
-
-    public Charactere(int id, string name, int pv, int atq)
+    public class Charactere
     {
-        Id = id;
-        this.name = name;
-        PV = pv;
-        ATQ = atq;
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public int PV { get; set; }
+        public int ATQ { get; set; }
+        
+        public Charactere() { }
+
+        public Charactere(int id, string name, int pv, int atq)
+        {
+            Id = id;
+            Name = name;
+            PV = pv;
+            ATQ = atq;
+        }
     }
 }

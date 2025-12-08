@@ -1,0 +1,38 @@
+@page "/Leaderboard"
+@inject HttpClient Http
+@inject ITokenService TokenService
+
+<h3>Classement Général</h3>
+
+@if (entries == null)
+{
+    <p>Chargement…</p>
+}
+else
+{
+    <ol>
+        @foreach (var e in entries)
+        {
+            <li>Joueur @e.PlayerId : @e.BestScore points</li>
+        }
+    </ol>
+}
+
+@code {
+    List<LeaderboardEntry>? entries;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await TokenService.GetTokenAsync();
+        Http.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        entries = await Http.GetFromJsonAsync<List<LeaderboardEntry>>("/api/statistics/leaderboard");
+    }
+
+    public class LeaderboardEntry
+    {
+        public int PlayerId { get; set; }
+        public int BestScore { get; set; }
+    }
+}

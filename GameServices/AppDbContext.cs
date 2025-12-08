@@ -8,6 +8,8 @@ namespace GameServices
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
+        public DbSet<GameSession> GameSessions { get; set; }
+
         public DbSet<Charactere> Characters { get; set; }
         public DbSet<Player> Players { get; set; }
         public DbSet<Ennemie> Ennemies { get; set; }

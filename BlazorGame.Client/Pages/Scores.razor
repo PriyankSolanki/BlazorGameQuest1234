@@ -1,0 +1,48 @@
+@page "/Scores"
+@inject HttpClient Http
+@inject ITokenService TokenService
+
+<h3>Scores</h3>
+
+@if (scores == null)
+{
+    <p>Chargement…</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr><th>PlayerId</th><th>Score</th><th>Date</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var s in scores)
+            {
+                <tr>
+                    <td>@s.PlayerId</td>
+                    <td>@s.Score</td>
+                    <td>@s.DatePlayed</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    List<SessionDto>? scores;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var token = await TokenService.GetTokenAsync();
+        Http.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        scores = await Http.GetFromJsonAsync<List<SessionDto>>("/api/admin/scores");
+    }
+
+    public class SessionDto
+    {
+        public int PlayerId { get; set; }
+        public int Score { get; set; }
+        public DateTime DatePlayed { get; set; }
+    }
+}
